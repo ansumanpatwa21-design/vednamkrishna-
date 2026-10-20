@@ -7,7 +7,11 @@
 <title>VednamKrishna | Your Shop, Your Choice</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#fffaf1;color:#17233b}
+body
+<img src="file_00000000496482088519026bbf8542a3.png"
+     alt="VednamKrishna Logo"
+     width="150">
+{margin:0;font-family:Arial,sans-serif;background:#fffaf1;color:#17233b}
 header{background:#082747;color:white;text-align:center;padding:24px 12px}
 header h1{margin:0;color:#ffcf55;font-size:clamp(27px,7vw,42px)}
 header p{margin:8px 0 0}
