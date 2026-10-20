@@ -1,1 +1,178 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VednamKrishna | Your Shop, Your Choice</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#fff8fb;color:#33232d}
+header{background:#7b2853;color:white;text-align:center;padding:22px 12px}
+.logo{width:100px;height:100px;object-fit:contain;background:white;border-radius:50%}
+h1{margin:10px 0 5px}
+.tag{color:#ffe5ae}
+nav{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;padding:14px;background:white}
+nav a{color:#7b2853;text-decoration:none;font-weight:bold}
+main{max-width:1000px;margin:auto;padding:16px}
+.hero{background:#ffedf5;padding:18px;border-radius:14px;text-align:center}
+.shop{width:100%;max-width:600px;max-height:300px;object-fit:cover;border-radius:12px}
+h2{color:#8b315f}
+button{background:#8b315f;color:white;border:0;padding:11px 14px;border-radius:8px;cursor:pointer}
+input,textarea{width:100%;padding:12px;margin:6px 0 12px;border:1px solid #d9bdcc;border-radius:8px;font:inherit}
+.categories,.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.category,.product,.panel{background:white;border:1px solid #eed9e4;border-radius:12px;padding:14px}
+.category{text-align:center;cursor:pointer;font-weight:bold;color:#8b315f}
+.product .emoji{font-size:36px}
+.product h3{margin-bottom:6px}
+.price{font-weight:bold;color:#8b315f}
+.product button{width:100%}
+.notice{background:#fff2d6;padding:12px;border-radius:8px;font-size:14px;line-height:1.5}
+footer{background:#482139;color:white;text-align:center;padding:22px}
+</style>
+</head>
+<body>
+<header>
+  <img class="logo" src="file_00000000496482088519026bbf8542a3.png"
+       alt="VednamKrishna Logo" onerror="this.style.display='none'">
+  <h1>VednamKrishna</h1>
+  <p class="tag">Your Shop, Your Choice.</p>
+  <p>Cosmetics • Jewellery • Toys • Footwear • Daily-use Items</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#categories">Categories</a>
+  <a href="#products">Products</a>
+  <a href="#order">Order / Request</a>
+  <a href="#cart">Cart (<span id="count">0</span>)</a>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <img class="shop" src="Shop.jng" alt="Our Shop"
+       onerror="this.style.display='none'">
+  <h2>Welcome to Our Shop!</h2>
+  <p>Find your favourite everyday products at VednamKrishna.</p>
+  <p><b>Shop pickup only · Pay at the shop</b></p>
+  <button onclick="document.getElementById('products').scrollIntoView()">Explore Products</button>
+</section>
+
+<section id="categories">
+  <h2>Shop by Category</h2>
+  <div class="categories">
+    <div class="category" onclick="filterCategory('Cosmetics')">💄 Cosmetics</div>
+    <div class="category" onclick="filterCategory('Jewellery')">💍 Bangles & Jewellery</div>
+    <div class="category" onclick="filterCategory('Toys & Gifts')">🧸 Toys & Gifts</div>
+    <div class="category" onclick="filterCategory('Footwear')">👟 Footwear</div>
+    <div class="category" onclick="filterCategory('Daily-use')">🏠 Daily-use Items</div>
+    <div class="category" onclick="filterCategory('All')">🛍️ All Products</div>
+  </div>
+</section>
+
+<section id="products">
+  <h2>Our Products</h2>
+  <input id="search" placeholder="Search products..." oninput="renderProducts()">
+  <p class="notice">Sample products and prices are shown for demonstration. Replace them with your shop's actual products and prices before customers order.</p>
+  <div class="products" id="productList"></div>
+</section>
+
+<section class="panel" id="cart">
+  <h2>Your Cart</h2>
+  <div id="cartItems">Your cart is empty.</div>
+  <p><b>Sample total: ₹<span id="total">0</span></b></p>
+  <button onclick="fillOrder()">Put Cart Items in Order Form</button>
+  <button onclick="clearCart()">Clear Cart</button>
+</section>
+
+<section class="panel" id="order">
+  <h2>Order / Request an Item</h2>
+  <p class="notice">Important: This form prepares a summary on the customer's device. It does not send an order to the shop or save it online yet.</p>
+  <form id="orderForm">
+    <label for="name">Your Name *</label>
+    <input id="name" required maxlength="80" placeholder="Enter your name">
+    <label for="phone">Phone Number (optional)</label>
+    <input id="phone" type="tel" maxlength="20" placeholder="Contact number">
+    <label for="items">Products and quantities *</label>
+    <textarea id="items" required placeholder="Write product names and quantities"></textarea>
+    <label for="special">Want an item not listed? (optional)</label>
+    <textarea id="special" placeholder="Write the item name and details"></textarea>
+    <p><b>Collection:</b> Pick up from shop</p>
+    <p><b>Payment:</b> Pay at the shop</p>
+    <button type="submit">Prepare Order Summary</button>
+  </form>
+  <div id="result" class="panel" hidden></div>
+</section>
+
+<section class="panel">
+  <h2>Shop Owner Information</h2>
+  <p>Secure owner login, adding photos and prices, stock management, and receiving orders online require a database and backend. These features are not active in this starter version.</p>
+</section>
+</main>
+
+<footer>
+  <b>VednamKrishna</b><br>
+  Your Shop, Your Choice.<br>
+  Shop pickup only · Payment at shop
+</footer>
+
+<script>
+const products=[
+ {id:1,name:"Lipstick",category:"Cosmetics",price:100,emoji:"💄"},
+ {id:2,name:"Face Cream",category:"Cosmetics",price:120,emoji:"🧴"},
+ {id:3,name:"Bangles",category:"Jewellery",price:60,emoji:"💍"},
+ {id:4,name:"Earrings",category:"Jewellery",price:80,emoji:"✨"},
+ {id:5,name:"Toy",category:"Toys & Gifts",price:100,emoji:"🧸"},
+ {id:6,name:"Gift Item",category:"Toys & Gifts",price:150,emoji:"🎁"},
+ {id:7,name:"Slippers",category:"Footwear",price:120,emoji:"🩴"},
+ {id:8,name:"Daily-use Item",category:"Daily-use",price:50,emoji:"🛍️"}
+];
+let category="All",cart={};
+
+function renderProducts(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const list=products.filter(p=>(category==="All"||p.category===category)&&p.name.toLowerCase().includes(q));
+ document.getElementById("productList").innerHTML=list.length?list.map(p=>
+ `<article class="product"><div class="emoji">${p.emoji}</div><h3>${p.name}</h3><p>${p.category}</p><p class="price">Sample price: ₹${p.price}</p><button onclick="add(${p.id})">Add to Cart</button></article>`
+ ).join(""):"<p>No products found.</p>";
+}
+function filterCategory(c){category=c;renderProducts();document.getElementById("products").scrollIntoView({behavior:"smooth"});}
+function add(id){cart[id]=(cart[id]||0)+1;renderCart();}
+function remove(id){cart[id]--;if(cart[id]<=0)delete cart[id];renderCart();}
+function clearCart(){cart={};renderCart();}
+function renderCart(){
+ const entries=products.filter(p=>cart[p.id]);
+ document.getElementById("count").textContent=Object.values(cart).reduce((a,b)=>a+b,0);
+ document.getElementById("cartItems").innerHTML=entries.length?entries.map(p=>
+ `<p>${p.name} × ${cart[p.id]} — ₹${p.price*cart[p.id]} <button onclick="remove(${p.id})">Remove one</button></p>`
+ ).join(""):"Your cart is empty.";
+ document.getElementById("total").textContent=entries.reduce((s,p)=>s+p.price*cart[p.id],0);
+}
+function fillOrder(){
+ document.getElementById("items").value=products.filter(p=>cart[p.id]).map(p=>`${p.name} × ${cart[p.id]}`).join("\n");
+ document.getElementById("order").scrollIntoView({behavior:"smooth"});
+}
+document.getElementById("orderForm").addEventListener("submit",function(e){
+ e.preventDefault();
+ const summary="VednamKrishna order enquiry\nName: "+document.getElementById("name").value+
+ "\nPhone: "+(document.getElementById("phone").value||"Not provided")+
+ "\nItems: "+document.getElementById("items").value+
+ "\nSpecial request: "+(document.getElementById("special").value||"None")+
+ "\nPickup: Shop pickup only\nPayment: Pay at the shop"+
+ "\n\nThis summary has NOT been sent to the shop.";
+ const result=document.getElementById("result");
+ result.hidden=false;
+ result.replaceChildren();
+ const heading=document.createElement("h3");heading.textContent="Order Summary";result.appendChild(heading);
+ const note=document.createElement("p");note.textContent="Copy this summary to share with the shop. It has not been sent automatically.";result.appendChild(note);
+ const area=document.createElement("textarea");area.value=summary;area.rows=9;result.appendChild(area);
+ const copy=document.createElement("button");copy.textContent="Copy Summary";
+ copy.onclick=async()=>{try{await navigator.clipboard.writeText(summary);copy.textContent="Copied";}catch(err){area.select();document.execCommand("copy");copy.textContent="Copy selected text";}};
+ result.appendChild(copy);
+ result.scrollIntoView({behavior:"smooth"});
+});
+renderProducts();renderCart();
+</script>
+</body>
+</html>
+
