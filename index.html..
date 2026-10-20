@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VednamKrishna | Your Shop, Your Choice</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#fffaf1;color:#17233b}
+header{background:#082747;color:white;text-align:center;padding:24px 12px}
+header h1{margin:0;color:#ffcf55;font-size:clamp(27px,7vw,42px)}
+header p{margin:8px 0 0}
+main{max-width:900px;margin:auto;padding:16px}
+.hero{background:#f2e4ce;border-radius:16px;padding:22px;text-align:center}
+.hero h2{margin-top:0}
+.shop-photo{display:block;width:100%;max-height:440px;object-fit:contain;background:#eee;border-radius:12px;margin-top:14px}
+.categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0}
+.category{background:white;border:1px solid #ead7b7;border-radius:12px;padding:18px 8px;text-align:center;font-weight:bold}
+h2{color:#082747}
+.products{border:1px dashed #c9b58f;border-radius:14px;padding:18px;background:white}
+form{display:grid;gap:12px}
+input,textarea,button{font:inherit;padding:12px;border-radius:9px}
+input,textarea{border:1px solid #c9c9c9;width:100%}
+button{border:0;background:#082747;color:white;font-weight:bold}
+.note{font-size:13px;color:#5e6470}
+footer{text-align:center;background:#082747;color:white;padding:20px;margin-top:25px}
+</style>
+</head>
+<body>
+<header>
+<h1>VednamKrishna</h1>
+<p>Your Shop, Your Choice.</p>
+</header>
+<main>
+<section class="hero">
+<h2>Har Roz Kuch Naya ✨</h2>
+<p>Apni pasand ka samaan dekhein aur shop se pickup karein.</p>
+<img class="shop-photo" src="shop.jpg" alt="VednamKrishna shop" onerror="this.style.display='none'">
+<p class="note">Shop photo yahan shop.jpg file upload karne ke baad dikhegi.</p>
+</section>
+<div class="categories">
+<div class="category">💄 Cosmetics & Makeup</div>
+<div class="category">💍 Bangles & Jewellery</div>
+<div class="category">🧸 Toys & Gifts</div>
+<div class="category">👟 Footwear</div>
+<div class="category">🛍️ Daily-use Items</div>
+<div class="category">✨ Special Requests</div>
+</div>
+<section class="products">
+<h2>Products & Prices</h2>
+<p>Products ki photos aur confirmed prices jald yahan add honge.</p>
+<p class="note">Abhi live product catalogue aur order submission connect nahi hua hai.</p>
+</section>
+<section>
+<h2>Request a Product</h2>
+<p>Jo samaan chahiye, uska naam aur details likhein.</p>
+<form onsubmit="event.preventDefault();alert('Ye demo form hai. Aapki request abhi send ya save nahi hui.');">
+<input name="customer" placeholder="Aapka naam" required>
+<input name="phone" type="tel" placeholder="Mobile number" required>
+<textarea name="product" placeholder="Product ka naam, colour, size ya quantity" rows="3" required></textarea>
+<button type="submit">Request Preview</button>
+</form>
+<p class="note">Filhaal ye preview hai. Customer ki request receive karne ke liye backend connect karna hoga.</p>
+</section>
+</main>
+<footer>VednamKrishna · Your Shop, Your Choice.<br>Shop pickup available</footer>
+</body>
+</html>
