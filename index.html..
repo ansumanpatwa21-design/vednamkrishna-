@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,7 @@
 <title>VednamKrishna | Your Shop, Your Choice</title>
 <style>
 *{box-sizing:border-box}
-body
+<body>
 <img src="file_00000000496482088519026bbf8542a3.png"
      alt="VednamKrishna Logo"
      width="150">
@@ -31,7 +30,7 @@ button{border:0;background:#082747;color:white;font-weight:bold}
 footer{text-align:center;background:#082747;color:white;padding:20px;margin-top:25px}
 </style>
 </head>
-<body>
+</body>
 <header>
 <h1>VednamKrishna</h1>
 <p>Your Shop, Your Choice.</p>
