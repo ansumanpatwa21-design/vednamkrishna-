@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VednamKrishna - Your Shop, Your Choice</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0b1c3c;
+            --accent-gold: #f4d03f;
+            --secondary-purple: #4a154b;
+            --light-bg: #fdfbf7;
+            --text-dark: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header / Banner */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), #162a54);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 4px solid var(--accent-gold);
+            position: relative;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-title span {
+            color: var(--accent-gold);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .sub-tagline {
+            font-style: italic;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 1rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        /* Categories Section */
+        .categories {
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 8px auto 0 auto;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category-card {
+            background: white;
+            padding: 2rem 1rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eaeaea;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .category-card i {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            background: #f0f4f8;
+            padding: 20px;
+            border-radius: 50%;
+        }
+
+        .category-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        /* Features Bar */
+        .features {
+            background: var(--primary-blue);
+            color: white;
+            padding: 3rem 1rem;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #061024;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            border-top: 2px solid var(--accent-gold);
+        }
+
+        footer p span {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Brand Banner -->
+    <header>
+        <div class="header-container">
+            <div class="logo-title">Vednam<span>Krishna</span></div>
+            <div class="tagline">Your Shop, Your Choice</div>
+            <div class="sub-tagline">Har Roz Kuch Naya ✨</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Your Trusted Neighborhood Store</h1>
+        <p>Explore a wide range of cosmetics, stylish bangles, toys, gifts, footwear, and daily-use essentials all under one roof!</p>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2 class="section-title">Our Collections</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <h3>Cosmetics & Makeup</h3>
+            </div>
+            <div class="category-card">
+                <i class="fa-solid fa-ring"></i>
+                <h3>Bangles & Jewellery</h3>
+            </div>
+            <div class="category-card">
+                <i class="fa-solid fa-gamepad"></i>
+                <h3>Toys & Gifts</h3>
+            </div>
+            <div class="category-card">
+                <i class="fa-solid fa-shoe-prints"></i>
+                <h3>Footwear</h3>
+            </div>
+            <div class="category-card">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <h3>Daily-use Items & More</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Banner -->
+    <section class="features">
+        <div class="features-container">
+            <div class="feature-item">
+                <i class="fa-solid fa-award"></i>
+                <h4>Best Quality Products</h4>
+                <p>Handpicked items ensuring premium standards[span_7](start_span)[span_7](end_span).</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h4>Local Support & Service</h4>
+                <p>Always here for our neighborhood community[span_8](start_span)[span_8](end_span).</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-tags"></i>
+                <h4>Affordable Prices</h4>
+                <p>Great value for every single purchase[span_9](start_span)[span_9](end_span).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span>VednamKrishna</span>. Shop Local, Support Local[span_10](start_span)[span_10](end_span). All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
